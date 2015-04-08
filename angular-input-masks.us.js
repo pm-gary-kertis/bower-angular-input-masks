@@ -587,7 +587,7 @@ angular.module('ui.utils.masks.global.percentage', [
 	['$locale', '$parse', 'PreFormatters', 'NumberMasks', 'NumberValidators',
 	function ($locale, $parse, PreFormatters, NumberMasks, NumberValidators) {
 		function preparePercentageToFormatter (value, decimals) {
-			return PreFormatters.clearDelimitersAndLeadingZeros((parseFloat(value)*100).toFixed(decimals));
+			return PreFormatters.clearDelimitersAndLeadingZeros((parseFloat(value)).toFixed(decimals));
 		}
 
 		return {
@@ -647,7 +647,7 @@ angular.module('ui.utils.masks.global.percentage', [
 						if(isNaN(decimals)) {
 							decimals = 2;
 						}
-						numberDecimals = decimals + 2;
+						numberDecimals = decimals;
 						viewMask = NumberMasks.viewMask(decimals, decimalDelimiter, thousandsDelimiter);
 						modelMask = NumberMasks.modelMask(numberDecimals);
 
