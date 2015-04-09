@@ -382,9 +382,9 @@ angular.module('ui.utils.masks.global.money', [
 			restrict: 'A',
 			require: 'ngModel',
 			link: function (scope, element, attrs, ctrl) {
-				var decimalDelimiter = $locale.NUMBER_FORMATS.DECIMAL_SEP,
-					thousandsDelimiter = $locale.NUMBER_FORMATS.GROUP_SEP,
-					currencySym = $locale.NUMBER_FORMATS.CURRENCY_SYM,
+				var decimalDelimiter = ".",
+					thousandsDelimiter = ",",
+					currencySym = "$",
 					decimals = $parse(attrs.uiMoneyMask)(scope);
 
 				if (angular.isDefined(attrs.uiHideGroupSep)){
@@ -479,8 +479,8 @@ angular.module('ui.utils.masks.global.number', [
 			restrict: 'A',
 			require: 'ngModel',
 			link: function (scope, element, attrs, ctrl) {
-				var decimalDelimiter = $locale.NUMBER_FORMATS.DECIMAL_SEP,
-					thousandsDelimiter = $locale.NUMBER_FORMATS.GROUP_SEP,
+				var decimalDelimiter = ".",
+					thousandsDelimiter = ",",
 					decimals = $parse(attrs.uiNumberMask)(scope);
 
 				if (angular.isDefined(attrs.uiHideGroupSep)){
@@ -594,8 +594,8 @@ angular.module('ui.utils.masks.global.percentage', [
 			restrict: 'A',
 			require: 'ngModel',
 			link: function (scope, element, attrs, ctrl) {
-				var decimalDelimiter = $locale.NUMBER_FORMATS.DECIMAL_SEP,
-					thousandsDelimiter = $locale.NUMBER_FORMATS.GROUP_SEP,
+				var decimalDelimiter = ".",
+					thousandsDelimiter = ",",
 					decimals = parseInt(attrs.uiPercentageMask);
 
 				if (angular.isDefined(attrs.uiHideGroupSep)){
@@ -686,7 +686,7 @@ angular.module('ui.utils.masks.global.percentage', [
 angular.module('ui.utils.masks.global.scientific-notation', [])
 .directive('uiScientificNotationMask', ['$locale', '$parse', '$log',
 	function($locale, $parse, $log) {
-		var decimalDelimiter = $locale.NUMBER_FORMATS.DECIMAL_SEP,
+		var decimalDelimiter = ".",
 			defaultPrecision = 2;
 
 		function significandMaskBuilder (decimals) {
